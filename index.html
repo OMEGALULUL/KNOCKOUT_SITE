@@ -7,7 +7,6 @@
     <meta name="description" content="Knock Out Pub & Grill – Vanderbijlpark's local hangout for wood-fired pizza, cold draughts, pool, darts and great value specials.">
     <title>Knock Out Pub & Grill | Vanderbijlpark</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Apple Touch Icon for iOS bookmarking -->
     <link rel="apple-touch-icon" href="icon-192.jpg">
     <style>
         :root {
@@ -94,7 +93,6 @@
             font-style: italic;
         }
 
-        /* "Get the App" button */
         .get-app-btn {
             display: inline-block;
             background: var(--amber);
@@ -242,7 +240,6 @@
             padding-bottom: 5px;
         }
 
-        /* Add to cart button */
         .add-to-cart-btn {
             background: var(--amber);
             color: var(--charcoal);
@@ -435,7 +432,6 @@
     <header class="app-header" id="home">
         <img class="logo-img" src="KNOCKOUT.jpg" alt="Knock Out Pub & Grill Logo">
         <div class="tagline">Pub & Grill · Vanderbijlpark</div>
-        <!-- "Get the App" button – links to the installable PWA -->
         <a href="app.html" class="get-app-btn">
             <i class="fas fa-download"></i> Get the App
         </a>
@@ -555,7 +551,7 @@
                 <div class="special-day animate-on-scroll"><div class="day">Sunday</div><div class="offer"><span class="highlight">Family Roast</span><br>Slow-roasted beef or pork, veggies, gravy <strong>R85</strong></div></div>
             </div>
             <div style="text-align:center; margin-top:20px;" class="animate-on-scroll">
-                <a href="tel:+27763441762" class="btn">Call to book a table</a>
+                <a href="tel:+27828281823" class="btn">Call to book a table</a>
             </div>
         </section>
 
@@ -578,7 +574,8 @@
             <h2 class="section-title animate-on-scroll"><span>Find Us</span></h2>
             <div class="contact-info animate-on-scroll">
                 <div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>4 Carnot St, Vanderbijlpark C. W. 6, Vanderbijlpark, 1911</span></div>
-                <div class="contact-row"><i class="fas fa-phone-alt"></i><a href="tel:+27763441762" style="color:inherit; text-decoration:none;">076 344 1762</a></div>
+                <div class="contact-row"><i class="fas fa-phone-alt"></i><a href="tel:+27828281823" style="color:inherit; text-decoration:none;">082 828 1823</a></div>
+                <div class="contact-row"><i class="fas fa-envelope"></i><a href="mailto:knockoutpubandgrill@gmail.com" style="color:inherit; text-decoration:none;">knockoutpubandgrill@gmail.com</a></div>
                 <div class="contact-row"><i class="fas fa-clock"></i><table class="hours-table"><tr><td>Mon – Thu</td><td>12:00 – 22:00</td></tr><tr><td>Fri – Sat</td><td>12:00 – 02:00</td></tr><tr><td>Sunday</td><td>12:00 – 20:00</td></tr></table></div>
                 <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.976544363399!2d27.85431431502683!3d-26.70310198320082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9459582aad315d%3A0x4f3b8a1f6baa6d2b!2s4%20Carnot%20St%2C%20Vanderbijlpark%20C.%20W.%206%2C%20Vanderbijlpark%2C%201911!5e0!3m2!1sen!2sza!4v1689000000000" allowfullscreen="" loading="lazy"></iframe></div>
                 <div style="text-align:center; margin-top:15px;"><a href="https://www.google.com/maps/dir//4+Carnot+St,+Vanderbijlpark+C.+W.+6,+Vanderbijlpark,+1911" target="_blank" class="btn btn-outline"><i class="fas fa-directions"></i> Get Directions</a></div>
@@ -613,7 +610,7 @@
     </footer>
 
     <script>
-        // --- Cart Logic ---
+        // --- Cart Logic (updated WhatsApp number) ---
         let cart = [];
 
         function updateCartUI() {
@@ -649,7 +646,7 @@
                 totalDiv.textContent = `Total: R${total}`;
                 whatsappBtn.style.display = 'flex';
                 const message = encodeURIComponent(generateOrderMessage());
-                whatsappBtn.href = `https://wa.me/27763441762?text=${message}`;
+                whatsappBtn.href = `https://wa.me/27828281823?text=${message}`;   // UPDATED NUMBER
             }
         }
 
