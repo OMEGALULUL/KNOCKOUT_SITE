@@ -35,7 +35,6 @@
             padding: 20px 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-
         .logo-img {
             max-width: 160px;
             height: auto;
@@ -48,14 +47,12 @@
             margin: 40px auto;
             padding: 20px;
         }
-
         .policy-card {
             background: var(--white);
             border-radius: var(--border-radius);
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
             padding: 30px;
         }
-
         .policy-card h1 {
             font-family: 'Oswald', 'Impact', sans-serif;
             text-transform: uppercase;
@@ -63,14 +60,8 @@
             color: var(--charcoal);
             margin-bottom: 20px;
         }
-
-        .policy-card p, .policy-card ul {
-            margin-bottom: 20px;
-        }
-
-        .policy-card ul {
-            padding-left: 20px;
-        }
+        .policy-card p, .policy-card ul { margin-bottom: 20px; }
+        .policy-card ul { padding-left: 20px; }
 
         .back-btn {
             display: inline-block;
@@ -83,7 +74,6 @@
             margin-top: 20px;
             transition: background 0.3s, transform 0.2s;
         }
-
         .back-btn:hover {
             background: #e59420;
             transform: scale(1.05);
@@ -144,10 +134,14 @@
                 If you have any questions about this policy, please contact us:<br><br>
                 <strong>Knock Out Pub & Grill</strong><br>
                 4 Carnot St, Vanderbijlpark C. W. 6, Vanderbijlpark, 1911<br>
-                Phone: <a href="tel:+27828281823">082 828 1823</a>
+                Phone: <a href="tel:+27828281823">082 828 1823</a><br>
+                Email: <a href="mailto:knockoutpubandgrill@gmail.com">knockoutpubandgrill@gmail.com</a>
             </p>
 
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Site</a>
+            <!-- Dynamic back link -->
+            <a id="backLink" href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Site
+            </a>
         </div>
     </main>
 
@@ -155,5 +149,14 @@
         &copy; 2026 Knock Out Pub & Grill. All rights reserved.
     </footer>
 
+    <script>
+        // If app is installed, go back to app.html; otherwise stay with index.html
+        const backLink = document.getElementById('backLink');
+        if (localStorage.getItem('knockout_app_installed') === 'true') {
+            backLink.href = 'app.html';
+        } else {
+            backLink.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
