@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#1A1A1A">
+    <meta name="description" content="Knock Out Pub & Grill – Vanderbijlpark's local hangout for wood-fired pizza, cold draughts, pool, darts and great value specials.">
+    <title>Knock Out Pub & Grill | Vanderbijlpark</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Apple Touch Icon for iOS bookmarking (public site icon) -->
+    <link rel="apple-touch-icon" href="icon-192.jpg">
+    <style>
+        :root {
+            --charcoal: #1A1A1A;
+            --amber: #F5A623;
+            --red: #B22222;
+            --light-bg: #f8f5f0;
+            --text: #222;
+            --white: #fff;
+            --card-bg: #fff;
+            --border-radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Lato', 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', 'Impact', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* ---------- ANIMATIONS ---------- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        @keyframes logoPop {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* header */
+        .app-header {
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 10px 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .logo-img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 5px;
+            animation: logoPop 0.8s ease-out;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* "Get the App" button */
+        .get-app-btn {
+            display: inline-block;
+            background: var(--amber);
+            color: var(--charcoal);
+            font-weight: 700;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .get-app-btn:hover {
+            background: #e59420;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23F5A623"><circle cx="30" cy="40" r="12" opacity="0.15"/><circle cx="70" cy="60" r="15" opacity="0.1"/></svg>');
+            background-blend-mode: overlay;
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px; height: 200px;
+            background: rgba(245,166,35,0.05);
+            border-radius: 50%;
+            top: -40px; left: -40px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 150px; height: 150px;
+            background: rgba(178,34,34,0.08);
+            border-radius: 50%;
+            bottom: -30px; right: -30px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--amber);
+            margin-bottom: 10px;
+            position: relative; z-index: 1;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            position: relative; z-index: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 8px;
+            transition: background 0.3s, transform 0.2s;
+            border: none; cursor: pointer;
+            position: relative; z-index: 1;
+        }
+        .btn:hover { background: #a01818; transform: scale(1.05); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--charcoal);
+        }
+
+        .hero .btn { animation: pulse 2s infinite; }
+        .hero .btn-outline { animation: pulse 2.5s infinite; }
+
+        /* section headings */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--charcoal);
+            margin: 40px 0 20px;
+            position: relative;
+        }
+        .section-title span {
+            background: var(--light-bg);
+            padding: 0 15px;
+            position: relative; z-index: 1;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100%; height: 3px;
+            background: var(--amber);
+            position: absolute;
+            top: 50%; left: 0;
+            z-index: 0;
+        }
+
+        /* menu cards */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--amber);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+        .menu-card h3 { font-size: 1.5rem; margin-bottom: 6px; color: var(--charcoal); }
+        .menu-card .price { font-weight: 700; color: var(--red); font-size: 1.2rem; margin: 8px 0; }
+        .menu-card .desc { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+        .menu-category {
+            font-weight: 700;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        /* Add to cart button */
+        .add-to-cart-btn {
+            background: var(--amber);
+            color: var(--charcoal);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        .add-to-cart-btn:hover { background: #e59420; transform: scale(1.05); }
+
+        /* floating cart button */
+        .cart-float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: var(--red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .cart-float-btn:hover { transform: scale(1.1); }
+        .cart-float-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--amber);
+            color: var(--charcoal);
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* cart modal */
+        .cart-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 0.3s, opacity 0.3s;
+        }
+        .cart-modal-overlay.open {
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0s 0s, opacity 0.3s;
+        }
+        .cart-modal {
+            background: white;
+            width: 90%;
+            max-width: 550px;
+            max-height: 80vh;
+            border-radius: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .cart-close {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+        .cart-items { margin: 20px 0; }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item .item-info { flex: 1; }
+        .cart-item .item-name { font-weight: 700; font-size: 1.1rem; }
+        .cart-item .item-price { color: var(--red); font-size: 0.9rem; }
+        .cart-item .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cart-item .qty-controls button {
+            background: #f0f0f0;
+            border: none;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .cart-total {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: right;
+            margin: 20px 0;
+        }
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            font-weight: 700;
+            padding: 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+        .whatsapp-btn:hover { background: #1da851; }
+
+        /* specials */
+        .specials-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 30px 0; }
+        .special-day {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+            padding: 20px 25px;
+            flex: 1 1 180px;
+            text-align: center;
+            border-left: 6px solid var(--amber);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .special-day:hover { transform: translateY(-5px); border-left-color: var(--red); }
+        .special-day .day { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; color: var(--charcoal); }
+        .special-day .offer { font-size: 1rem; color: #444; margin-top: 8px; }
+        .special-day .highlight { color: var(--red); font-weight: 700; }
+
+        /* entertainment */
+        .entertainment-icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin: 30px 0; }
+        .entertainment-item { text-align: center; font-size: 2.5rem; color: var(--charcoal); transition: transform 0.3s; }
+        .entertainment-item:hover { transform: scale(1.1); }
+        .entertainment-item span { display: block; font-size: 1.1rem; font-weight: 700; margin-top: 10px; text-transform: uppercase; }
+
+        /* contact */
+        .contact-info { background: var(--white); border-radius: var(--border-radius); padding: 30px; box-shadow: 0 4px 14px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        .contact-row { display: flex; align-items: center; margin-bottom: 20px; font-size: 1.1rem; }
+        .contact-row i { font-size: 1.6rem; width: 35px; color: var(--amber); margin-right: 15px; }
+        .hours-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .hours-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .hours-table td:last-child { text-align: right; font-weight: 600; }
+        .map-container { border-radius: var(--border-radius); overflow: hidden; margin: 20px 0; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+        iframe { width: 100%; height: 300px; border: 0; }
+
+        .app-footer { text-align: center; padding: 20px; color: #777; font-size: 0.9rem; background: var(--white); border-top: 1px solid #eee; margin-top: 40px; }
+
+        @media (max-width: 600px) {
+            .logo-img { max-width: 160px; }
+            .hero h2 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .cart-float-btn { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header" id="home">
+        <img class="logo-img" src="KNOCKOUT.jpg" alt="Knock Out Pub & Grill Logo">
+        <div class="tagline">Pub & Grill · Vanderbijlpark</div>
+        <!-- "Get the App" button – links to the installable PWA -->
+        <a href="app.html" class="get-app-btn">
+            <i class="fas fa-download"></i> Get the App
+        </a>
+    </header>
+
+    <section class="hero animate-on-scroll">
+        <h2>Good Times, Great Value</h2>
+        <p>Wood‑fired pizzas, ice‑cold draughts, and live sport – right in the heart of Vanderbijlpark.</p>
+        <div>
+            <a href="#menu" class="btn">Our Menu</a>
+            <a href="#specials" class="btn btn-outline">Daily Specials</a>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2 class="section-title animate-on-scroll"><span>Food &amp; Drinks</span></h2>
+
+            <div class="menu-category animate-on-scroll"><i class="fas fa-pizza-slice"></i> Wood‑Fired Pizzas</div>
+            <div class="menu-grid">
+                <div class="menu-card animate-on-scroll" data-name="Margherita" data-price="85">
+                    <h3>Margherita</h3>
+                    <div class="price">R85</div>
+                    <p class="desc">San Marzano tomato, fresh mozzarella, garden basil.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Knock Out Supreme" data-price="120">
+                    <h3>Knock Out Supreme</h3>
+                    <div class="price">R120</div>
+                    <p class="desc">Pepperoni, beef, mushrooms, green pepper, onions & extra cheese.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="BBQ Chicken" data-price="105">
+                    <h3>BBQ Chicken</h3>
+                    <div class="price">R105</div>
+                    <p class="desc">Smoky BBQ base, grilled chicken, red onion, sweet corn.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Regina" data-price="95">
+                    <h3>Regina</h3>
+                    <div class="price">R95</div>
+                    <p class="desc">Ham, mushroom, olives, mozzarella.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-category animate-on-scroll"><i class="fas fa-hamburger"></i> Grill Favourites</div>
+            <div class="menu-grid">
+                <div class="menu-card animate-on-scroll" data-name="Classic Beef Burger" data-price="99">
+                    <h3>Classic Beef Burger</h3>
+                    <div class="price">R99</div>
+                    <p class="desc">200g pure beef patty, lettuce, tomato, gherkin, chips.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Chicken Prego Roll" data-price="89">
+                    <h3>Chicken Prego Roll</h3>
+                    <div class="price">R89</div>
+                    <p class="desc">Peri-peri chicken breast, grilled onions, chips.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Ribs (Half Rack)" data-price="135">
+                    <h3>Ribs (Half Rack)</h3>
+                    <div class="price">R135</div>
+                    <p class="desc">Sticky BBQ pork ribs, served with slaw and your choice of side.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Steak & Chips" data-price="150">
+                    <h3>Steak &amp; Chips</h3>
+                    <div class="price">R150</div>
+                    <p class="desc">300g rump or sirloin, grilled to your liking, garlic butter.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="menu-category animate-on-scroll"><i class="fas fa-beer-mug-empty"></i> On Tap &amp; Bottles</div>
+            <div class="menu-grid">
+                <div class="menu-card animate-on-scroll" data-name="Draught Beer (500ml)" data-price="30">
+                    <h3>Draught Beer</h3>
+                    <div class="price">R30 (500ml)</div>
+                    <p class="desc">Castle Lite, Black Label, Hansa – ice cold.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Craft / Cider" data-price="38">
+                    <h3>Craft / Cider</h3>
+                    <div class="price">R38</div>
+                    <p class="desc">Savanna Dry, Hunters, local rotating tap.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Shooter" data-price="18">
+                    <h3>Shooters</h3>
+                    <div class="price">from R18</div>
+                    <p class="desc">Jägermeister, Tequila, Fireball – ask your bartender.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="menu-card animate-on-scroll" data-name="Soft Drink" data-price="20">
+                    <h3>Soft Drinks</h3>
+                    <div class="price">R20</div>
+                    <p class="desc">Coke, Fanta, Sprite, soda water & mixers.</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specials Section -->
+        <section id="specials">
+            <h2 class="section-title animate-on-scroll"><span>Weekly Specials</span></h2>
+            <p style="text-align:center; margin-bottom:20px; color:#555;" class="animate-on-scroll">Every day a reason to visit. Prices shown are examples and may vary.</p>
+            <div class="specials-list">
+                <div class="special-day animate-on-scroll"><div class="day">Monday</div><div class="offer"><span class="highlight">Pizza + Pint</span><br>Any large pizza & a draught <br><strong>R99</strong></div></div>
+                <div class="special-day animate-on-scroll"><div class="day">Tuesday</div><div class="offer"><span class="highlight">Burger & Beer</span><br>Classic burger + 500ml draught <br><strong>R89</strong></div></div>
+                <div class="special-day animate-on-scroll"><div class="day">Wednesday</div><div class="offer"><span class="highlight">Wing Wednesday</span><br>1kg sticky wings & a shooter <br><strong>R110</strong></div></div>
+                <div class="special-day animate-on-scroll"><div class="day">Thursday</div><div class="offer"><span class="highlight">Steak Night</span><br>300g rump + chips + draught <br><strong>R135</strong></div></div>
+                <div class="special-day animate-on-scroll"><div class="day">Friday</div><div class="offer"><span class="highlight">Live DJ / Music</span><br>Shooters R18 each until 9pm</div></div>
+                <div class="special-day animate-on-scroll"><div class="day">Saturday</div><div class="offer"><span class="highlight">Sport & Sundowners</span><br>Happy hour 4–6pm: half-price draughts</div></div>
+                <div class="special-day animate-on-scroll"><div class="day">Sunday</div><div class="offer"><span class="highlight">Family Roast</span><br>Slow-roasted beef or pork, veggies, gravy <strong>R85</strong></div></div>
+            </div>
+            <div style="text-align:center; margin-top:20px;" class="animate-on-scroll">
+                <a href="tel:+27763441762" class="btn">Call to book a table</a>
+            </div>
+        </section>
+
+        <!-- Entertainment & About -->
+        <section id="about">
+            <h2 class="section-title animate-on-scroll"><span>Play, Eat, Repeat</span></h2>
+            <div class="entertainment-icons">
+                <div class="entertainment-item animate-on-scroll"><i class="fas fa-table-tennis-paddle-ball"></i><span>Pool Tables</span></div>
+                <div class="entertainment-item animate-on-scroll"><i class="fas fa-bullseye"></i><span>4 Dart Boards</span></div>
+                <div class="entertainment-item animate-on-scroll"><i class="fas fa-hand-fist"></i><span>Arcade Punch Machine</span></div>
+                <div class="entertainment-item animate-on-scroll"><i class="fas fa-tv"></i><span>Big Screen Sports</span></div>
+            </div>
+            <p style="text-align:center; max-width:600px; margin:0 auto;" class="animate-on-scroll">
+                We're not just a pub – we're the ultimate game zone. Challenge your mates to a round of pool, try your luck on our four dart boards, or test your strength on the famous punching machine.
+            </p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="section-title animate-on-scroll"><span>Find Us</span></h2>
+            <div class="contact-info animate-on-scroll">
+                <div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>4 Carnot St, Vanderbijlpark C. W. 6, Vanderbijlpark, 1911</span></div>
+                <div class="contact-row"><i class="fas fa-phone-alt"></i><a href="tel:+27763441762" style="color:inherit; text-decoration:none;">076 344 1762</a></div>
+                <div class="contact-row"><i class="fas fa-clock"></i><table class="hours-table"><tr><td>Mon – Thu</td><td>12:00 – 22:00</td></tr><tr><td>Fri – Sat</td><td>12:00 – 02:00</td></tr><tr><td>Sunday</td><td>12:00 – 20:00</td></tr></table></div>
+                <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.976544363399!2d27.85431431502683!3d-26.70310198320082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9459582aad315d%3A0x4f3b8a1f6baa6d2b!2s4%20Carnot%20St%2C%20Vanderbijlpark%20C.%20W.%206%2C%20Vanderbijlpark%2C%201911!5e0!3m2!1sen!2sza!4v1689000000000" allowfullscreen="" loading="lazy"></iframe></div>
+                <div style="text-align:center; margin-top:15px;"><a href="https://www.google.com/maps/dir//4+Carnot+St,+Vanderbijlpark+C.+W.+6,+Vanderbijlpark,+1911" target="_blank" class="btn btn-outline"><i class="fas fa-directions"></i> Get Directions</a></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Cart Button -->
+    <div class="cart-float-btn" id="cartFloatBtn">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="badge" id="cartBadge" style="display:none;">0</span>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cartModalOverlay">
+        <div class="cart-modal">
+            <button class="cart-close" id="cartCloseBtn">&times;</button>
+            <h2>Your Basket</h2>
+            <div class="cart-items" id="cartItemsContainer">
+                <p style="text-align:center; color:#999;">Your basket is empty</p>
+            </div>
+            <div class="cart-total" id="cartTotal" style="display:none;">Total: R0</div>
+            <a href="#" class="whatsapp-btn" id="whatsappOrderBtn" style="display:none;" target="_blank">
+                <i class="fab fa-whatsapp"></i> Send Order via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        &copy; <span id="year"></span> Knock Out Pub & Grill. All rights reserved.
+    </footer>
+
+    <script>
+        // --- Cart Logic (same as app version) ---
+        let cart = [];
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const totalDiv = document.getElementById('cartTotal');
+            const whatsappBtn = document.getElementById('whatsappOrderBtn');
+            const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+
+            badge.textContent = count;
+            badge.style.display = count > 0 ? 'flex' : 'none';
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#999;">Your basket is empty</p>';
+                totalDiv.style.display = 'none';
+                whatsappBtn.style.display = 'none';
+            } else {
+                container.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">R${item.price} each</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button onclick="changeQty(${index}, -1)">−</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `).join('');
+                totalDiv.style.display = 'block';
+                totalDiv.textContent = `Total: R${total}`;
+                whatsappBtn.style.display = 'flex';
+                const message = encodeURIComponent(generateOrderMessage());
+                whatsappBtn.href = `https://wa.me/27763441762?text=${message}`;
+            }
+        }
+
+        function generateOrderMessage() {
+            let message = "Hello Knock Out Pub & Grill! I'd like to order:\n\n";
+            cart.forEach(item => {
+                message += `• ${item.qty}x ${item.name} @ R${item.price} each = R${item.qty * item.price}\n`;
+            });
+            const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            message += `\nTotal: R${total}\n\nPlease confirm. Thank you!`;
+            return message;
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            const btn = document.getElementById('cartFloatBtn');
+            btn.style.transform = 'scale(1.3)';
+            setTimeout(() => { btn.style.transform = ''; }, 200);
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.menu-card');
+                const name = card.dataset.name;
+                const price = parseInt(card.dataset.price);
+                addToCart(name, price);
+            });
+        });
+
+        const floatBtn = document.getElementById('cartFloatBtn');
+        const overlay = document.getElementById('cartModalOverlay');
+        const closeBtn = document.getElementById('cartCloseBtn');
+
+        floatBtn.addEventListener('click', () => overlay.classList.add('open'));
+        closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.classList.remove('open');
+        });
+
+        // Year and scroll animations
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        animateElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
