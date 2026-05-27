@@ -7,7 +7,7 @@
     <meta name="description" content="Knock Out Pub & Grill – Vanderbijlpark's local hangout for wood-fired pizza, cold draughts, pool, darts and great value specials.">
     <title>Knock Out Pub & Grill | Vanderbijlpark</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Apple Touch Icon for iOS bookmarking (public site icon) -->
+    <!-- Apple Touch Icon for iOS bookmarking -->
     <link rel="apple-touch-icon" href="icon-192.jpg">
     <style>
         :root {
@@ -413,6 +413,13 @@
         iframe { width: 100%; height: 300px; border: 0; }
 
         .app-footer { text-align: center; padding: 20px; color: #777; font-size: 0.9rem; background: var(--white); border-top: 1px solid #eee; margin-top: 40px; }
+        .app-footer a {
+            color: var(--amber);
+            text-decoration: none;
+        }
+        .app-footer a:hover {
+            text-decoration: underline;
+        }
 
         @media (max-width: 600px) {
             .logo-img { max-width: 160px; }
@@ -601,11 +608,12 @@
     </div>
 
     <footer class="app-footer">
-        &copy; <span id="year"></span> Knock Out Pub & Grill. All rights reserved.
+        &copy; <span id="year"></span> Knock Out Pub & Grill. All rights reserved. 
+        | <a href="privacy.html">Privacy Policy</a>
     </footer>
 
     <script>
-        // --- Cart Logic (same as app version) ---
+        // --- Cart Logic ---
         let cart = [];
 
         function updateCartUI() {
